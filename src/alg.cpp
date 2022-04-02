@@ -26,11 +26,11 @@ std::string infx2pstfx(std::string inf) {
       itog.push_back(razd);
       }
       if (ischar(chto) == 1) {
-      while (ischar(stackznakov.top()) != 0) {
+      while (ischar(stackznakov.get()) != 0) {
         itog.push_back(stackznakov.pop());
         itog.push_back(razd);
         }
-      } else if ((ischar(chto) >= ischar(stackznakov.top())) &&
+      } else if ((ischar(chto) >= ischar(stackznakov.get())) &&
                  (ischar(chto) != 0) && (ischar(chto) != 1)) {
         itog.push_back(chto);
         itog.push_back(razd);
