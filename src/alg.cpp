@@ -69,6 +69,7 @@ for (int i = 0; i < inf.size(); i++) {
     itog.push_back(' ');
     itog.push_back(zzz.get());
     zzz.pop();
+  }
 return itog;
 }
 
