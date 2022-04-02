@@ -7,14 +7,14 @@ class TStack {
  private:
   T arr[100];
   int top;
-  
+
  public:
     TStack() :top(-1) { }
     T get() {
       if (!isEmpty())
         return arr[top];
       else
-      throw "!empty"
+      throw "!empty";
     }
     bool isEmpty() {
         return top == -1;
