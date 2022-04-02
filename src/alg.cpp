@@ -37,9 +37,9 @@ zzz.push(inf[i]);
   break;
 } else {
 while (prior(zzz.get()) >= 2) {
-itog.push_back(zzz.get());
-itog.push_back(' ');
-zzz.pop();
+  itog.push_back(' ');
+  itog.push_back(zzz.get());
+  zzz.pop();
 }
 zzz.push(inf[i]);
 break;
@@ -48,8 +48,16 @@ break;
   case 3 : {
 if ((prior(zzz.get()) < 3) || zzz.isEmpty()) {
 zzz.push(inf[i]);
+  break;
+} else {
+while (prior(zzz.get()) >= 3) {
+  itog.push_back(' ');
+  itog.push_back(zzz.get());
+  zzz.pop();
 }
+zzz.push(inf[i]);
 break;
+} 
   }
   case -1 : {
     if (!itog.empty() && prior(inf[i - 1]) != -1) {
