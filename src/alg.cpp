@@ -57,6 +57,7 @@ return itog;
 int eval(std::string pref) {
 TStack <int, 50> zzz;
 int itog;
+  zzz.push(0);
 for (int i = 0; i <= pref.size(); i++) {
 if ((static_cast<int>(pref[i]) > 0) && (static_cast<int>(pref[i]) < 10)) {
 zzz.push(static_cast<int>(pref[i]));
