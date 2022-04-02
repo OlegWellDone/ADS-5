@@ -24,7 +24,7 @@ for (int i  = 0; i <= inf.size(); i++) {
 switch  (pr) {
   case 0 : zzz.push(inf[i]); break;
   case 1 : {
-while (zzz.get() != 0) {
+while ((zzz.get() != 0) || zzz.isEmpty()) {
 itog.push_back(zzz.get());
 itog.push_back(' ');
 zzz.pop();
