@@ -50,12 +50,7 @@ int eval(std::string pref) {
   int resh = 0, kk = 0;
   for (int i = 0; i <= pref.length(); i++) {
     chto = pref[i];
-    if (chto == ' ') {
-      continue;
-    }
-    if (ischar(chto) == 4) {
-      stackzifr.push(chto);
-    } else if (ischar(chto) != 4) {
+    if (ischar(chto) != 4) {
       kk = stackzifr.get();
       stackzifr.pop();
       switch (chto) {
@@ -104,7 +99,9 @@ int eval(std::string pref) {
             }
           }
       }
-    }
+    } else if (chto == ' ') {
+      continue;
+    } else stackzifr.push((int)chto);
   }
   return resh;
 }
