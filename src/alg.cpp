@@ -27,9 +27,11 @@ for (int i = 0; i < inf.size(); i++) {
         itog.push_back(' ');
       }
       itog.push_back(inf[i]);
+      break;
     }
     case 0 : {
       zzz.push(inf[i]);
+      break;
     }
     case 1 : {
       while (prior(zzz.get()) != 0) {
@@ -38,6 +40,7 @@ for (int i = 0; i < inf.size(); i++) {
         zzz.pop();
       }
       zzz.pop();
+      break;
     }
     case 2 : {
       if ((prior(zzz.get()) < 2) ||  (zzz.isEmpty())) {
@@ -50,6 +53,7 @@ for (int i = 0; i < inf.size(); i++) {
         }
         zzz.push(inf[i]);
       }
+      break;
     }
     case 3 : {
       if ((prior(zzz.get()) < 3) ||  (zzz.isEmpty())) {
@@ -62,6 +66,7 @@ for (int i = 0; i < inf.size(); i++) {
         }
         zzz.push(inf[i]);
       }
+      break;
     }
   }
 }
