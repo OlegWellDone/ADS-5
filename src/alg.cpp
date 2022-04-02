@@ -27,6 +27,9 @@ std::string infx2pstfx(std::string inf) {
         itog.push_back(stackznakov.get());
         stackznakov.pop();
         itog.push_back(razd);
+        if (ischar(stackznakov.get() == 0)) {
+          stackznakov.pop();
+        }
         }
       } else if ((ischar(chto) > ischar(stackznakov.get())) ||
                  (ischar(chto) == 0) || (stackznakov.isEmpty())) {
@@ -51,5 +54,69 @@ std::string infx2pstfx(std::string inf) {
 }
 
 int eval(std::string pref) {
+ /*   TStack<int, 100> stackzifr;
+  char chto = ' ';
+  std::string uu = " ";
+  int resh = 0, kk = 0;
+  for (int i = 0; i <= pref.size(); i++) {
+    chto = pref[i];
+    if (ischar(chto) != 4) {
+      kk = stackzifr.get();
+      stackzifr.pop();
+      switch (chto) {
+          case ('+') : {
+            if (resh == 0) {
+              resh = kk + stackzifr.get();
+              stackzifr.pop();
+              break;
+            } else {
+              resh = resh + stackzifr.get();
+              stackzifr.pop();
+              break;
+            }
+          }
+          case ('-') : {
+            if (resh == 0) {
+              resh = kk - stackzifr.get();
+              stackzifr.pop();
+              break;
+            } else {
+              resh = resh - stackzifr.get();
+              stackzifr.pop();
+              break;
+            }
+          }
+          case ('*') : {
+            if (resh == 0) {
+              resh = kk * stackzifr.get();
+              stackzifr.pop();
+              break;
+            } else {
+              resh = resh * stackzifr.get();
+              stackzifr.pop();
+              break;
+            }
+          }
+          case ('/') : {
+            if (resh == 0) {
+              resh = kk / stackzifr.get();
+              stackzifr.pop();
+              break;
+            } else {
+              resh = resh / stackzifr.get();
+              stackzifr.pop();
+              break;
+            }
+          }
+      }
+    } else if (chto == ' ') {
+      continue;
+    } else {
+      stackzifr.push(chto);
+    }
+  }*/
+  
+  
+  
   return 0;
 }
