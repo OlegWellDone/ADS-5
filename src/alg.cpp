@@ -58,7 +58,7 @@ int eval(std::string pref) {
 TStack <int, 50> zzz;
 int itog, temp;
 for (int i = 0; i < pref.size(); i++) {
-if ((std::stoi(pref[i]) > 0) && (std::stoi(pref[i]) < 10)) {
+if (((int)(pref[i]) > 0) && ((int)(pref[i]) < 10)) {
 zzz.push(std::stoi(pref[i]));
 } else if (prior(pref[i]) > 1) {
   switch (pref[i]) {
