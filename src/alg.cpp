@@ -58,40 +58,40 @@ int eval(std::string pref) {
 TStack <int, 50> zzz;
 int itog, temp;
 for (int i = 0; i < pref.size(); i++) {
-if ((static_cast<int>(pref[i]) > 0) && (static_cast<int>(pref[i]) < 10)) {
-zzz.push(static_cast<int>(pref[i]));
+if ((std::stoi(pref[i]) > 0) && (std::stoi(pref[i]) < 10)) {
+zzz.push(std::stoi(pref[i]));
 } else if (prior(pref[i]) > 1) {
   switch (pref[i]) {
     case '+' : {
       temp = zzz.get();
       zzz.pop();
-      itog = zzz.get() + temp;
+      itog = zzz.get();
       zzz.pop();
-      zzz.push(itog);
+      zzz.push(itog + temp);
       break;
     }
     case '-' : {
       temp = zzz.get();
       zzz.pop();
-      itog = zzz.get() - temp;
+      itog = zzz.get();
       zzz.pop();
-      zzz.push(itog);
+      zzz.push(itog - temp);
       break;
     }
     case '*' : {
       temp = zzz.get();
       zzz.pop();
-      itog = zzz.get() * temp;
+      itog = zzz.get();
       zzz.pop();
-      zzz.push(itog);
+      zzz.push(itog * temp);
       break;
     }
     case '/' : {
       temp = zzz.get();
       zzz.pop();
-      itog = zzz.get() / temp;
+      itog = zzz.get();
       zzz.pop();
-      zzz.push(itog);
+      zzz.push(itog / temp);
       break;
     }
   }
