@@ -4,14 +4,15 @@
 #include "tstack.h"
 
 int ischar(char t) {
- switch (t) {
-   case ('(') : return 0;
-   case (')') : return 1;
-   case ('+') : return 2;
-   case ('-') : return 2;
-   case ('*') : return 3;
-   case ('/') : return 3;
-   default : return 4;
+  switch (t) {
+    case ('(') : return 0;
+    case (')') : return 1;
+    case ('+') : return 2;
+    case ('-') : return 2;
+    case ('*') : return 3;
+    case ('/') : return 3;
+    default : return 4;
+  }
 }
 
 std::string infx2pstfx(std::string inf) {
@@ -20,27 +21,30 @@ std::string infx2pstfx(std::string inf) {
   String itog = "";
   for (int i = 0; i <= inf.length(); i++) {
     chto = inf[i];
-    if (ischar(chto) != 4) {
+    if (ischar(chto) == 4) {
+      itog += chto;
+      itog += razd;
+      }
       if (ischar(chto) == 1) {
       while (stackznakov.top() != 0) {
         itog += stackznakov.pop();
-        }
-      } else if ((ischar(chto) >= stackznakov.top()) && (ischar(chto) != 0) && (ischar(chto) != 1)) {
-        itog += chto;
-        else {
-        stackznakov.push(chto);
         itog += razd;
+        }
+      } else if ((ischar(chto) >= ischar(stackznakov.top())) &&
+                 (ischar(chto) != 0) && (ischar(chto) != 1)) {
+        itog += chto;
+        itog += razd;
+      } else {
+        stackznakov.push(chto);
       }
-    } else itog += chto;
-  }
-  
-  return std::string("");
+    }
+  return std::string(itog);
 }
 
 int eval(std::string pref) {
   TStack<int, 100> stackzifr;
-  char chto = '';
-  String uu = "";
+  char chto = ' ';
+  String uu = " ";
   uint64_t resh = 0, kk = 0;
   for (int i = 0; i <= pref.lenght(); i++) {
     chto = pref[i];
