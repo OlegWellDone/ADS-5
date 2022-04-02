@@ -40,7 +40,7 @@ std::string infx2pstfx(std::string inf) {
       itog.push_back(razd);
       }
     }
-  return std::string itog;
+  return itog;
 }
 
 int eval(std::string pref) {
