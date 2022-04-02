@@ -45,7 +45,7 @@ for (int i = 0; i < inf.size(); i++) {
       zzz.push(inf[i]);
     }
   }
-}    
+}
 while (!zzz.isEmpty()) {
   itog.push_back(' ');
   itog.push_back(zzz.get());
