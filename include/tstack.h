@@ -11,10 +11,11 @@ class TStack {
  public:
     TStack() :top(-1) { }
     T get() {
-      if (!isEmpty())
+      if (!isEmpty()) {
         return arr[top];
-        else
+        } else {
         return 0;
+        }
     }
     bool isEmpty() {
         return top == -1;
