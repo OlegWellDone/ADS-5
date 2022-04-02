@@ -71,14 +71,14 @@ TStack <int, 50> zzz;
 int itog;
 for (int i = 0; i <= pref.size(); i++) {
 if ((pref[i] != ' ') && (prior(pref[i]) == 8)) {
-zzz.push(<int>pref[i]);
+zzz.push(static_cast<int>(pref[i]));
 } else {
   switch (pref[i]) {
     case '+' : {
       itog = zzz.get();
       zzz.pop();
       itog = itog + zzz.get();
-      zzz.pop;
+      zzz.pop();
       zzz.push(itog);
       break;
     }
@@ -86,7 +86,7 @@ zzz.push(<int>pref[i]);
       itog = zzz.get();
       zzz.pop();
       itog = itog - zzz.get();
-      zzz.pop;
+      zzz.pop();
       zzz.push(itog);
       break;
     }
@@ -94,7 +94,7 @@ zzz.push(<int>pref[i]);
       itog = zzz.get();
       zzz.pop();
       itog = itog + zzz.get();
-      zzz.pop;
+      zzz.pop();
       zzz.push(itog);
       break;
     }
@@ -102,7 +102,7 @@ zzz.push(<int>pref[i]);
       itog = zzz.get();
       zzz.pop();
       itog = itog + zzz.get();
-      zzz.pop;
+      zzz.pop();
       zzz.push(itog);
       break;
     }
