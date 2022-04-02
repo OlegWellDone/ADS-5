@@ -18,7 +18,7 @@ int ischar(char t) {
 std::string infx2pstfx(std::string inf) {
   TStack<char, 100> stackznakov;
   char chto = '', razd = ' ';
-  String itog = "";
+  std::string itog = " ";
   for (int i = 0; i <= inf.length(); i++) {
     chto = inf[i];
     if (ischar(chto) == 4) {
@@ -44,9 +44,9 @@ std::string infx2pstfx(std::string inf) {
 int eval(std::string pref) {
   TStack<int, 100> stackzifr;
   char chto = ' ';
-  String uu = " ";
+  std::string uu = " ";
   uint64_t resh = 0, kk = 0;
-  for (int i = 0; i <= pref.lenght(); i++) {
+  for (int i = 0; i <= pref.length(); i++) {
     chto = pref[i];
     if (ischar(chto) == 4) {
       stackzifr.push(chto);
