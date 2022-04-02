@@ -21,10 +21,7 @@ std::string infx2pstfx(std::string inf) {
   std::string itog = " ";
   for (int i = 0; i <= inf.length(); i++) {
     chto = inf[i];
-    if (ischar(chto) == 4) {
-      itog.push_back(chto);
-      itog.push_back(razd);
-      }
+    if (ischar(chto) != 4) {
       if (ischar(chto) == 1) {
       while (ischar(stackznakov.get()) != 0) {
         itog.push_back(stackznakov.get());
@@ -37,6 +34,9 @@ std::string infx2pstfx(std::string inf) {
         itog.push_back(razd);
       } else {
         stackznakov.push(chto);
+      } else 
+      itog.push_back(chto);
+      itog.push_back(razd);
       }
     }
   return std::string(itog);
