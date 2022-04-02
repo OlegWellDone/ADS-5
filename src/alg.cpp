@@ -11,15 +11,15 @@ int ischar(char t) {
     case '-' : return 2;
     case '*' : return 3;
     case '/' : return 3;
+      default : return 0;
   }
-  return 4;
 }
 
 std::string infx2pstfx(std::string inf) {
   TStack<char, 100> stackznakov;
   char chto = ' ', razd = ' ';
   std::string itog;
-  for (int i = 0; i <= inf.size(); i++) {
+  for (int i = 0; i < inf.size(); i++) {
     chto = inf[i];
     if (ischar(chto) != 4) {
       if (ischar(chto) == 1) {
@@ -27,17 +27,14 @@ std::string infx2pstfx(std::string inf) {
         itog.push_back(stackznakov.get());
         stackznakov.pop();
         itog.push_back(razd);
-        if (ischar(stackznakov.get()) == 0) {
-          stackznakov.pop();
-          break;
         }
-        }
-      } else if ((ischar(chto) >= ischar(stackznakov.get())) &&
-                 (ischar(chto) != 0) && (ischar(chto) != 1)) {
-        itog.push_back(chto);
-        itog.push_back(razd);
-      } else {
+      } else if ((ischar(chto) > ischar(stackznakov.get()) ||
+                 (ischar(chto) == 0) || (stackznakov.isEmpty())) {
         stackznakov.push(chto);
+      } else {
+        while (ischar(stackznakov.get()) >= ischar(chto)) {
+          itog.push_back(stackznakov.get());
+          stackznakov.pop;
       }
     } else {
       itog.push_back(chto);
