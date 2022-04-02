@@ -3,12 +3,90 @@
 #include <map>
 #include "tstack.h"
 
+int ischar(char t) {
+ switch (t) {
+   case ('(') : return 0;
+   case (')') : return 1;
+   case ('+') : return 2;
+   case ('-') : return 2;
+   case ('*') : return 3;
+   case ('/') : return 3;
+   default : return 4;
+}
+
 std::string infx2pstfx(std::string inf) {
-  // добавьте код
+  TStack<char, 100> stackznakov;
+  char chto = '', razd = ' ';
+  String itog = "";
+  for (int i = 0; i <= inf.length(); i++) {
+    chto = inf[i];
+    if (ischar(chto) != 4) {
+      if (ischar(chto) == 1) {
+      while (stackznakov.top() != 0) {
+        itog += stackznakov.pop();
+        }
+      } else if ((ischar(chto) >= stackznakov.top()) && (ischar(chto) != 0) && (ischar(chto) != 1)) {
+        itog += chto;
+        else {
+        stackznakov.push(chto);
+        itog += razd;
+      }
+    } else itog += chto;
+  }
+  
   return std::string("");
 }
 
 int eval(std::string pref) {
-  // добавьте код
-  return 0;
+  TStack<int, 100> stackzifr;
+  char chto = '';
+  String uu = "";
+  uint64_t resh = 0, kk = 0;
+  for (int i = 0; i <= pref.lenght(); i++) {
+    chto = pref[i];
+    if (ischar(chto) == 4) {
+      stackzifr.push(chto);
+    } else if (ischar(chto) != 4) {
+      kk = stackzifr.pop();
+      switch (chto) {
+          case ('+') : {
+            if (resh == 0) {
+              resh = kk + stackzifr.pop();
+              break;
+            } else {
+              resh = resh + stackzifr.pop();
+              break;
+            }
+          }
+          case ('-') : {
+            if (resh == 0) {
+              resh = kk - stackzifr.pop();
+              break;
+            } else {
+              resh = resh - stackzifr.pop();
+              break;
+            }
+          }
+          case ('*') : {
+            if (resh == 0) {
+              resh = kk * stackzifr.pop();
+              break;
+            } else {
+              resh = resh * stackzifr.pop();
+              break;
+            }
+          }
+          case ('/') : {
+            if (resh == 0) {
+              resh = kk / stackzifr.pop();
+              break;
+            } else {
+              resh = resh / stackzifr.pop();
+              break;
+            }
+          }
+      }
+    }
+  }
+  return resh;
 }
