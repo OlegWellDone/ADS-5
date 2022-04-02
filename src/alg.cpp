@@ -119,6 +119,8 @@ for (int i = 0; i < pref.size(); i++) {
   }
 } else if (pref[i] != ' ') {
     zzzz.push(static_cast<int>(pref[i]));
+  } else if (pref[i] == ' ') {
+    continue;
   }
 }
   return zzzz.get();
