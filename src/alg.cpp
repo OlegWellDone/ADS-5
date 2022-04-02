@@ -118,7 +118,7 @@ for (int i = 0; i < pref.size(); i++) {
     }
   }
 } else if (pref[i] != ' ') {
-    zzzz.push(pref[i]);
+    zzzz.push(static_cast<int>pref[i]);
   }
 }
   return zzzz.get();
