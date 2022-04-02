@@ -23,7 +23,7 @@ std::string infx2pstfx(std::string inf) {
     chto = inf[i];
     if (ischar(chto) != 4) {
       if (ischar(chto) == 1) {
-      while (ischar(stackznakov.get()) != 0) {
+      while ((ischar(stackznakov.get()) != 0) && !stackznakov.isEmpty()) {
         itog.push_back(stackznakov.get());
         stackznakov.pop();
         itog.push_back(razd);
