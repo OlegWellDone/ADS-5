@@ -95,8 +95,6 @@ zzz.push(static_cast<int>(pref[i]));
       break;
     }
   }
-} else {
-  continue;
 }
 }
   return zzz.get();
