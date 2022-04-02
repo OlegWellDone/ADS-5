@@ -29,7 +29,7 @@ for (int i = 0; i < inf.size(); i++) {
   } else if ((pr == 0) || (pr > prior(zzz.get())) || (zzz.isEmpty())) {
     zzz.push(inf[i]);
   } else {
-    if (p == 1) {
+    if (pr == 1) {
       while (prior(zzz.get()) != 0) {
         itog.push_back(' ');
         itog.push_back(zzz.get());
@@ -37,7 +37,7 @@ for (int i = 0; i < inf.size(); i++) {
       }
       zzz.pop();
     } else {
-      while (prior(zzz.get())) >= p) {
+      while (prior(zzz.get()) >= pr) {
         itog.push_back(' ');
         itog.push_back(zzz.get());
         zzz.pop();
@@ -45,6 +45,7 @@ for (int i = 0; i < inf.size(); i++) {
       zzz.push(inf[i]);
     }
   }
+}
 while (!zzz.isEmpty()) {
   itog.push_back(' ');
   itog.push_back(zzz.get());
