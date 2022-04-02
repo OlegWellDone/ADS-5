@@ -11,8 +11,8 @@ int ischar(char t) {
     case '-' : return 2;
     case '*' : return 3;
     case '/' : return 3;
-    default : return 4;
   }
+  return 4;
 }
 
 std::string infx2pstfx(std::string inf) {
