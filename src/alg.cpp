@@ -27,6 +27,10 @@ std::string infx2pstfx(std::string inf) {
         itog.push_back(stackznakov.get());
         stackznakov.pop();
         itog.push_back(razd);
+        if (ischar(stackznakov.get()) == 0) {
+          stackznakov.pop();
+          break;
+        }
         }
       } else if ((ischar(chto) >= ischar(stackznakov.get())) &&
                  (ischar(chto) != 0) && (ischar(chto) != 1)) {
