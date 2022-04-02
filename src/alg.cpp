@@ -101,7 +101,9 @@ int eval(std::string pref) {
       }
     } else if (chto == ' ') {
       continue;
-    } else stackzifr.push((int)chto);
+    } else {
+      stackzifr.push(chto);
+    }
   }
   return resh;
 }
