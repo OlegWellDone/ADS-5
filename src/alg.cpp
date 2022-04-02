@@ -22,18 +22,18 @@ std::string infx2pstfx(std::string inf) {
   for (int i = 0; i <= inf.length(); i++) {
     chto = inf[i];
     if (ischar(chto) == 4) {
-      itog.concat(chto);
-      itog.concat(razd);
+      itog.push_back(chto);
+      itog.push_back(razd);
       }
       if (ischar(chto) == 1) {
       while (ischar(stackznakov.top()) != 0) {
-        itog.concat(stackznakov.pop());
-        itog.concat(razd);
+        itog.push_back(stackznakov.pop());
+        itog.push_back(razd);
         }
       } else if ((ischar(chto) >= ischar(stackznakov.top())) &&
                  (ischar(chto) != 0) && (ischar(chto) != 1)) {
-        itog.concat(chto);
-        itog.concat(razd);
+        itog.push_back(chto);
+        itog.push_back(razd);
       } else {
         stackznakov.push(chto);
       }
