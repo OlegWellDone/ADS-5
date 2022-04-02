@@ -13,8 +13,6 @@ class TStack {
     T get() {
       if (!isEmpty())
         return arr[top];
-      else
-      throw "!empty";
     }
     bool isEmpty() {
         return top == -1;
