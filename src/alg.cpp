@@ -29,6 +29,7 @@ while (prior(zzz.get()) != 0) {
   itog.push_back(zzz.get());
   zzz.pop();
      }
+    zzz.pop();
     break;
 }
   case 2 : {
@@ -57,7 +58,7 @@ while (prior(zzz.get()) >= 3) {
 }
 zzz.push(inf[i]);
 break;
-} 
+}
   }
   case -1 : {
     if (!itog.empty() && prior(inf[i - 1]) != -1) {
