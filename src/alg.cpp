@@ -58,7 +58,7 @@ int eval(std::string pref) {
 TStack <int, 50> zzz;
 int itog;
 for (int i = 0; i <= pref.size(); i++) {
-if ((pref[i] != ' ') && (prior(pref[i]) == 8)) {
+if ((pref[i] != ' ') && (prior(pref[i]) == -1)) {
 zzz.push(static_cast<int>(pref[i]));
 } else {
   switch (pref[i]) {
@@ -94,7 +94,7 @@ zzz.push(static_cast<int>(pref[i]));
       zzz.push(itog);
       break;
     }
-    case ' ' : continue;
+    default : continue;
   }
 }
 }
