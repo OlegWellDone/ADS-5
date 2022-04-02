@@ -3,117 +3,109 @@
 #include <map>
 #include "tstack.h"
 
-int ischar(char t) {
-  switch (t) {
-    case '(' : return 0;
-    case ')' : return 1;
-    case '+' : return 2;
-    case '-' : return 2;
-    case '*' : return 3;
-    case '/' : return 3;
-      default : return 0;
-  }
+int prior (char t) {
+switch(t) {
+case '(' : return 0;
+case ')' : return 1;
+case '+', '-' : return 2;
+case '*', '/' : return 3;
+default : return 8;
+}
 }
 
 std::string infx2pstfx(std::string inf) {
-  TStack<char, 100> stackznakov;
-  char chto = ' ', razd = ' ';
-  std::string itog;
-  for (int i = 0; i < inf.size(); i++) {
-    chto = inf[i];
-    if (ischar(chto) != 4) {
-      if (ischar(chto) == 1) {
-      while ((ischar(stackznakov.get()) != 0) && !stackznakov.isEmpty()) {
-        itog.push_back(stackznakov.get());
-        stackznakov.pop();
-        itog.push_back(razd);
-        if (ischar(stackznakov.get() == 0)) {
-          stackznakov.pop();
-        }
-        }
-      } else if ((ischar(chto) > ischar(stackznakov.get())) ||
-                 (ischar(chto) == 0) || (stackznakov.isEmpty())) {
-        stackznakov.push(chto);
-      } else {
-        while (ischar(stackznakov.get()) >= ischar(chto)) {
-          itog.push_back(stackznakov.get());
-          stackznakov.pop();
-      }
-    }
-  } else {
-      itog.push_back(chto);
-      itog.push_back(razd);
-      }
-    }
-       while (!stackznakov.isEmpty()) {
-         itog.push_back(stackznakov.get());
-         itog.push_back(razd);
-         stackznakov.pop();
-       }
-  return itog;
+  TStack <char, 50> zzz;
+int pr;
+std :: string itog;
+for (int i  = 0, i <= inf.size(); i++) {
+  pr = prior(inf[i]);
+switch  (pr) {
+  case 0 : zzz.push(inf[i]); break;
+  case 1 : {
+while (zzz.get() != 0) {
+itog.push_back(zzz.get());
+itog.push_back(' ');
+zzz.pop();
+     }
+break;
+}
+  case 2 : {
+if ((prior(zzz.get()) <= 2) || zzz.isEmpty()) {
+zzz.push(inf[i]);
+}
+else {
+while (prior(zzz.get()) > 2) {
+itog.push_back(zzz.get());
+itog.push_back(' ');
+zzz.pop();
+}
+zzz.push(inf[I]);
+break;
+}
+  case 3 : {
+if ((prior(zzz.get()) <= 3) || zzz.isEmpty()) {
+zzz.push(inf[i]);
+}
+break;
+}
+  case 8 : {
+itog.push_back(inf[i]);
+itog.push_back(' ');
+break;
+}
+}
+}
+  while(!zzz.isEmpty()) {
+itog.push_back(zzz.get());
+itog.push_back(' ');
+zzz.pop();
+}
+return itog;
 }
 
 int eval(std::string pref) {
- /*   TStack<int, 100> stackzifr;
-  char chto = ' ';
-  std::string uu = " ";
-  int resh = 0, kk = 0;
-  for (int i = 0; i <= pref.size(); i++) {
-    chto = pref[i];
-    if (ischar(chto) != 4) {
-      kk = stackzifr.get();
-      stackzifr.pop();
-      switch (chto) {
-          case ('+') : {
-            if (resh == 0) {
-              resh = kk + stackzifr.get();
-              stackzifr.pop();
-              break;
-            } else {
-              resh = resh + stackzifr.get();
-              stackzifr.pop();
-              break;
-            }
-          }
-          case ('-') : {
-            if (resh == 0) {
-              resh = kk - stackzifr.get();
-              stackzifr.pop();
-              break;
-            } else {
-              resh = resh - stackzifr.get();
-              stackzifr.pop();
-              break;
-            }
-          }
-          case ('*') : {
-            if (resh == 0) {
-              resh = kk * stackzifr.get();
-              stackzifr.pop();
-              break;
-            } else {
-              resh = resh * stackzifr.get();
-              stackzifr.pop();
-              break;
-            }
-          }
-          case ('/') : {
-            if (resh == 0) {
-              resh = kk / stackzifr.get();
-              stackzifr.pop();
-              break;
-            } else {
-              resh = resh / stackzifr.get();
-              stackzifr.pop();
-              break;
-            }
-          }
-      }
-    } else if (chto == ' ') {
-      continue;
-    } else {
-      stackzifr.push(chto);
+TStack <int, 50> zzz;
+int itog;
+for ( int i = 0; i <= pref.size(); i++) {
+if ((pref[i] != ' ') && (prior(pref[i] == 8)) {
+ zzz.push((int)pref[i]);
+} else {
+   switch(pref[i]) {
+case '+' : {
+   itog = zzz.get();
+   zzz.pop();
+   itog = itog + zzz.get();
+   zzz.pop;
+   zzz.push(itog);
+break;
+}
+case '-' : {
+itog = zzz.get();
+   zzz.pop();
+   itog = itog - zzz.get();
+   zzz.pop;
+   zzz.push(itog);
+break;
+}
+case '*' : {
+itog = zzz.get();
+   zzz.pop();
+   itog = itog + zzz.get();
+   zzz.pop;
+   zzz.push(itog);
+break;
+}
+case '/' : {
+itog = zzz.get();
+   zzz.pop();
+   itog = itog + zzz.get();
+   zzz.pop;
+   zzz.push(itog);
+break;
+}
+case ' ' : continue;
+}
+}
     }
-  }*/
-  return 0;
+  return zzz.get();
 }
