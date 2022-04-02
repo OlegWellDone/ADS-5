@@ -18,8 +18,8 @@ int ischar(char t) {
 std::string infx2pstfx(std::string inf) {
   TStack<char, 100> stackznakov;
   char chto = ' ', razd = ' ';
-  std::string itog = " ";
-  for (int i = 0; i <= inf.length(); i++) {
+  std::string itog;
+  for (int i = 0; i <= inf.size(); i++) {
     chto = inf[i];
     if (ischar(chto) != 4) {
       if (ischar(chto) == 1) {
@@ -48,7 +48,7 @@ int eval(std::string pref) {
   char chto = ' ';
   std::string uu = " ";
   int resh = 0, kk = 0;
-  for (int i = 0; i <= pref.length(); i++) {
+  for (int i = 0; i <= pref.size(); i++) {
     chto = pref[i];
     if (ischar(chto) != 4) {
       kk = stackzifr.get();
