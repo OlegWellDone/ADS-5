@@ -5,12 +5,12 @@
 
 int ischar(char t) {
   switch (t) {
-    case ('(') : return 0;
-    case (')') : return 1;
-    case ('+') : return 2;
-    case ('-') : return 2;
-    case ('*') : return 3;
-    case ('/') : return 3;
+    case '(' : return 0;
+    case ')' : return 1;
+    case '+' : return 2;
+    case '-' : return 2;
+    case '*' : return 3;
+    case '/' : return 3;
     default : return 4;
   }
 }
@@ -27,7 +27,8 @@ std::string infx2pstfx(std::string inf) {
       }
       if (ischar(chto) == 1) {
       while (ischar(stackznakov.get()) != 0) {
-        itog.push_back(stackznakov.pop());
+        itog.push_back(stackznakov.get());
+        stackznakov.pop();
         itog.push_back(razd);
         }
       } else if ((ischar(chto) >= ischar(stackznakov.get())) &&
