@@ -54,41 +54,50 @@ int eval(std::string pref) {
     if (ischar(chto) == 4) {
       stackzifr.push(chto);
     } else if (ischar(chto) != 4) {
-      kk = stackzifr.pop();
+      kk = stackzifr.get();
+      stackzifr.pop();
       switch (chto) {
           case ('+') : {
             if (resh == 0) {
-              resh = kk + stackzifr.pop();
+              resh = kk + stackzifr.get();
+              stackzifr.pop();
               break;
             } else {
-              resh = resh + stackzifr.pop();
+              resh = resh + stackzifr.get();
+              stackzifr.pop();
               break;
             }
           }
           case ('-') : {
             if (resh == 0) {
-              resh = kk - stackzifr.pop();
+              resh = kk - stackzifr.get();
+              stackzifr.pop();
               break;
             } else {
-              resh = resh - stackzifr.pop();
+              resh = resh - stackzifr.get();
+              stackzifr.pop();
               break;
             }
           }
           case ('*') : {
             if (resh == 0) {
-              resh = kk * stackzifr.pop();
+              resh = kk * stackzifr.get();
+              stackzifr.pop();
               break;
             } else {
-              resh = resh * stackzifr.pop();
+              resh = resh * stackzifr.get();
+              stackzifr.pop();
               break;
             }
           }
           case ('/') : {
             if (resh == 0) {
-              resh = kk / stackzifr.pop();
+              resh = kk / stackzifr.get();
+              stackzifr.pop();
               break;
             } else {
-              resh = resh / stackzifr.pop();
+              resh = resh / stackzifr.get();
+              stackzifr.pop();
               break;
             }
           }
