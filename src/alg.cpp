@@ -115,8 +115,5 @@ int eval(std::string pref) {
       stackzifr.push(chto);
     }
   }*/
-  
-  
-  
   return 0;
 }
