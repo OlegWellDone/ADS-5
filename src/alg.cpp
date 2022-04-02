@@ -60,7 +60,7 @@ int itog;
 for (int i = 0; i <= pref.size(); i++) {
 if ((pref[i] != ' ') && (prior(pref[i]) == -1)) {
 zzz.push(static_cast<int>(pref[i]));
-} else {
+} else if (prior(pref[i]) > 1) {
   switch (pref[i]) {
     case '+' : {
       itog = zzz.get();
@@ -94,8 +94,9 @@ zzz.push(static_cast<int>(pref[i]));
       zzz.push(itog);
       break;
     }
-    default : continue;
   }
+} else {
+  continue;
 }
 }
   return zzz.get();
