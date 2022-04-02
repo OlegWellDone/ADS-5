@@ -36,11 +36,17 @@ std::string infx2pstfx(std::string inf) {
           itog.push_back(stackznakov.get());
           stackznakov.pop;
       }
-    } else {
+    } 
+  } else {
       itog.push_back(chto);
       itog.push_back(razd);
       }
     }
+       while (!stackznakov.isEmpty()) {
+         itog.push_back(stackznakov.get);
+         itog.push_back(razd);
+         stackznakov.pop;
+       }
   return itog;
 }
 
