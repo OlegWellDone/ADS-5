@@ -117,7 +117,7 @@ for (int i = 0; i < pref.size(); i++) {
       break;
     }
   }
-} else if (pref[i]) != ' ') {
+} else if (pref[i] != ' ') {
     zzzz.push(pref[i]);
   }
 }
