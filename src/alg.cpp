@@ -82,11 +82,9 @@ int eval(std::string pref) {
 TStack <int, 50> zzzz;
 int itog, temp;
 for (int i = 0; i < pref.size(); i++) {
-if ((static_cast<int>(pref[i]) > 0) && (static_cast<int>(pref[i]) < 10)) {
-zzzz.push(static_cast<int>(pref[i]));
-} else if (prior(pref[i]) > 1) {
-  switch (pref[i]) {
-    case '+' : {
+  if (prior(pref[i]) > 1) {
+    switch (pref[i]) {
+      case '+' : {
       temp = zzzz.get();
       zzzz.pop();
       itog = zzzz.get();
@@ -119,7 +117,9 @@ zzzz.push(static_cast<int>(pref[i]));
       break;
     }
   }
-}
+} else if (pref[i]) != ' ') {
+    zzzz.push(pref[i]);
+  }
 }
   return zzzz.get();
 }
