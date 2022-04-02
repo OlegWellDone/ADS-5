@@ -28,13 +28,13 @@ std::string infx2pstfx(std::string inf) {
         stackznakov.pop();
         itog.push_back(razd);
         }
-      } else if ((ischar(chto) > ischar(stackznakov.get()) ||
+      } else if ((ischar(chto) > ischar(stackznakov.get())) ||
                  (ischar(chto) == 0) || (stackznakov.isEmpty())) {
         stackznakov.push(chto);
       } else {
         while (ischar(stackznakov.get()) >= ischar(chto)) {
           itog.push_back(stackznakov.get());
-          stackznakov.pop;
+          stackznakov.pop();
       }
     }
   } else {
@@ -43,9 +43,9 @@ std::string infx2pstfx(std::string inf) {
       }
     }
        while (!stackznakov.isEmpty()) {
-         itog.push_back(stackznakov.get);
+         itog.push_back(stackznakov.get());
          itog.push_back(razd);
-         stackznakov.pop;
+         stackznakov.pop();
        }
   return itog;
 }
