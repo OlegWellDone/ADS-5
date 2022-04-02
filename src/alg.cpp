@@ -21,36 +21,53 @@ int pr;
 std :: string itog;
 for (int i = 0; i < inf.size(); i++) {
   pr = prior(inf[i]);
-  if (pr == -1) {
-    if (!itog.empty() && prior(inf[i - 1]) != -1) {
-      itog.push_back(' ');
+  switch (pr) {
+    case -1 : {
+      if (!itog.empty() && prior(inf[i - 1]) != -1) {
+        itog.push_back(' ');
+      }
+      itog.push_back(inf[i]);
     }
-    itog.push_back(inf[i]);
-  } else if ((pr == 0) || (pr > prior(zzz.get())) || (zzz.isEmpty())) {
-    zzz.push(inf[i]);
-  } else {
-    if (pr == 1) {
+    case 0 : {
+      zzz.push(inf[i]);
+    }
+    case 1 : {
       while (prior(zzz.get()) != 0) {
         itog.push_back(' ');
         itog.push_back(zzz.get());
         zzz.pop();
       }
       zzz.pop();
-    } else {
-      while (prior(zzz.get()) >= pr) {
+    }
+    case 2 : {
+      if ((prior(zzz.get()) < 2) ||  (zzz.isEmpty())) {
+        zzz.push(inf[i]);
+      } else {
+        while (prior(zzz.get()) >= 2) {
+          itog.push_back(' ');
+          itog.push_back(zzz.get());
+          zzz.pop();
+        }
+        zzz.push(inf[i]);
+      }
+    }
+    case 3 : {
+      if ((prior(zzz.get()) < 3) ||  (zzz.isEmpty())) {
+        zzz.push(inf[i]);
+      } else {
+        while (prior(zzz.get()) >= 3) {
+          itog.push_back(' ');
+          itog.push_back(zzz.get());
+          zzz.pop();
+        }
+        zzz.push(inf[i]);
+      }
+    }
+      while (!zzz.isEmpty()) {
         itog.push_back(' ');
         itog.push_back(zzz.get());
         zzz.pop();
       }
-      zzz.push(inf[i]);
-    }
-  }
-}
-while (!zzz.isEmpty()) {
-  itog.push_back(' ');
-  itog.push_back(zzz.get());
-  zzz.pop();
-}
 return itog;
 }
 
