@@ -83,7 +83,7 @@ int eval(std::string pref) {
 TStack <int, 50> zzzz;
 int itog, temp;
 for (int i = 0; i < pref.size(); i++) {
-  pr = prior(pref[i]);
+  int pr = prior(pref[i]);
   if (pr > 1) {
     switch (pref[i]) {
       case '+' : {
