@@ -82,10 +82,13 @@ return itog;
 int eval(std::string pref) {
 TStack <int, 50> zzzz;
 int itog, temp;
+  std::string s = "";
 for (int i = 0; i < pref.size(); i++) {
   int pr = prior(pref[i]);
   if (pr == -1) {
-    zzzz.push(static_cast<int>(pref[i]));
+    s += pref[i];
+    zzzz.push(std::stoi(s));
+    s = "";
   } else if (pr > 1) {
     switch (pref[i]) {
       case '+' : {
