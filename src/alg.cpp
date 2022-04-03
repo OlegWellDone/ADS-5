@@ -11,6 +11,7 @@ switch (t) {
   case '-' : return 2;
   case '*' : return 3;
   case '/' : return 3;
+  case ' ' : return -2;
   default : return -1;
 }
 }
@@ -82,7 +83,8 @@ int eval(std::string pref) {
 TStack <int, 50> zzzz;
 int itog, temp;
 for (int i = 0; i < pref.size(); i++) {
-  if (prior(pref[i]) > 1) {
+  pr = prior(pref[i]);
+  if (pr > 1) {
     switch (pref[i]) {
       case '+' : {
       temp = zzzz.get();
@@ -117,10 +119,8 @@ for (int i = 0; i < pref.size(); i++) {
       break;
     }
   }
-} else if (pref[i] != ' ') {
+} else if (pr == -1) {
     zzzz.push(static_cast<int>(pref[i]));
-  } else if (pref[i] == ' ') {
-    continue;
   }
 }
   return zzzz.get();
