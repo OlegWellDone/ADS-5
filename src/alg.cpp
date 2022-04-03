@@ -84,7 +84,9 @@ TStack <int, 50> zzzz;
 int itog, temp;
 for (int i = 0; i < pref.size(); i++) {
   int pr = prior(pref[i]);
-  if (pr > 1) {
+ if (pr == -1) {
+    zzzz.push(static_cast<int>(pref[i]));
+  } else if (pr > 1) {
     switch (pref[i]) {
       case '+' : {
       temp = zzzz.get();
@@ -119,9 +121,7 @@ for (int i = 0; i < pref.size(); i++) {
       break;
     }
   }
-} else if (pr == -1) {
-    zzzz.push(static_cast<int>(pref[i]));
-  }
+} 
 }
   return zzzz.get();
 }
